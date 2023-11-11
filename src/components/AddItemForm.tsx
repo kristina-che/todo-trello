@@ -2,8 +2,7 @@ import React, { ChangeEvent, KeyboardEvent, MouseEvent, useState } from 'react';
 
 
 type PropsType = {
-  addTask: (inputValue: string, idTodoList: string) => void
-  idTodoList: string,
+  addItem: (inputValue: string) => void
 }
 
 
@@ -27,7 +26,7 @@ export function AddItemForm(props: PropsType) {
   const addNewTask = () => {
     const inputValueTrim = inputValue.trim()
     if(inputValueTrim !== "" && inputValue.trim()) {
-      props.addTask(inputValueTrim, props.idTodoList);
+      props.addItem(inputValueTrim);
       setInputValue("");
     } else {
       setError("Required field")
