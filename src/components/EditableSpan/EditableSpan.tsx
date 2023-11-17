@@ -1,3 +1,4 @@
+import { Input } from 'antd';
 import React, { useState, ChangeEvent } from 'react';
 
 type PropsType = {
@@ -24,7 +25,7 @@ export function EditableSpan(props: PropsType) {
 
   return (
     <span onClick={activeModeEdit} onBlur={activeModeView}>
-      {isEditMode ? <input value={title} onChange={onChangeTitleHandler} autoFocus /> : props.title}
+      {isEditMode ? <Input value={title} size="small" className="input-edit" onChange={onChangeTitleHandler} autoFocus />: props.title}
     </span>
   )
 }

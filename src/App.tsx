@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import {PropsTask, TodoList} from './TodoList';
+import {PropsTask, TodoList} from './components/TodoList/TodoList';
 import uuid from 'react-uuid';
-import { AddItemForm } from './components/AddItemForm';
+import { AddItemForm } from './components/AddItemForm/AddItemForm';
+import { Card, Col, Row } from 'antd';
+import { start } from 'repl';
+
 
 
 export type filterType = "all" | "active" | "done"
@@ -17,14 +20,12 @@ type tasksStateType = {
 }
 
 function App() {
-  const [filter, setFilter] = useState<filterType>("all");
-
   const todolist1 = uuid();
   const todolist2 = uuid();
 
   const [todoLists, setTodoLists] = useState<Array<todoListPrpos>>([
     {idTodoList: todolist1, titleTodoList: "Learn", filter: "all"},
-    {idTodoList: todolist2, titleTodoList: "What I should buy", filter: "active"},
+    {idTodoList: todolist2, titleTodoList: "What I should buy", filter: "all"},
   ])
 
   const [tasks, setTasks] = useState<tasksStateType>({
@@ -44,9 +45,9 @@ function App() {
 
   const changeFilter = (valueFilter: filterType, idTodoList: string) => {
     const todoListFilter = todoLists.find(tl => tl.idTodoList === idTodoList)
-    console.log(todoListFilter)
     if(todoListFilter) {
       todoListFilter.filter = valueFilter;
+      //setFilter(valueFilter)
       setTodoLists([...todoLists])
     }
   }
@@ -77,6 +78,7 @@ function App() {
   }
   
   const changeCheckbox = (id: string, isChecked: boolean, idTodoList: string) => {
+
     let task = tasks[idTodoList].find(item => item.id === id);
     if(task) {
       task.isDone = isChecked
@@ -108,33 +110,50 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <AddItemForm addItem={addTodoList} />
-      {todoLists.map(tl => {
-        let tasksForFilter = tasks[tl.idTodoList];
-        if(filter === "done") {
-          tasksForFilter = tasksForFilter.filter(task => task.isDone === true)
-        }
-        if(filter === "active") {
-          tasksForFilter = tasksForFilter.filter(task => task.isDone === false)
-        }
+    <div id="parallax">
+    <Row className="app" justify="center">
+      <Col span={12}>
+        <Row justify="center" className='title-block'>
+          <Col>
+            <h1>Todo list</h1>
+            <span className="after-h1">create your own task scheduler</span>
+          </Col>
+        </Row>
+      
+        <AddItemForm addItem={addTodoList} placeholder="New todo list" />
+        <Row gutter={30} className='content-todolist'>
+          {todoLists.map(tl => {
+            let tasksForFilter = tasks[tl.idTodoList];
 
-        return (
-            <TodoList key={tl.idTodoList}
-                      title={tl.titleTodoList}
-                      idTodoList={tl.idTodoList}
-                      tasks={tasksForFilter} 
-                      removeTask={removeTask} 
-                      changeFilter={changeFilter}
-                      addItem={addItem} 
-                      changeCheckbox={changeCheckbox}
-                      filter={tl.filter}
-                      deleteTodoList={deleteTodoList}
-                      changeTitleTask={changeTitleTask}
-                      changeTitle={changeTitle}
-            />
-        )
-      })}
+            if(tl.filter === "done") {
+              tasksForFilter = tasksForFilter.filter(task => task.isDone === true)
+          
+            }
+            if(tl.filter === "active") {
+              tasksForFilter = tasksForFilter.filter(task => task.isDone === false)
+            }
+
+            return (
+              <Col>
+                    <TodoList key={tl.idTodoList}
+                              title={tl.titleTodoList}
+                              idTodoList={tl.idTodoList}
+                              tasks={tasksForFilter} 
+                              removeTask={removeTask} 
+                              changeFilter={changeFilter}
+                              addItem={addItem} 
+                              changeCheckbox={changeCheckbox}
+                              filter={tl.filter}
+                              deleteTodoList={deleteTodoList}
+                              changeTitleTask={changeTitleTask}
+                              changeTitle={changeTitle}
+                    />
+              </Col>   
+            )
+          })}
+        </Row>
+      </Col>
+    </Row>
     </div>
   );
 }

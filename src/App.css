@@ -1,3 +1,8 @@
+body {
+  background: #f2f4f5;
+  margin: 0;
+}
+
 .error {
   color: red
 }
@@ -6,6 +11,102 @@
 }
 
 .active-btn {
-  background: green;
+  background: #18bc9c;
+} 
+
+.ant-radio-button-wrapper.active-btn {
+  color:rgba(255, 255, 255, 0.88);
+  border: 1px solid #18ae91;
 }
+
+.ant-radio-button-wrapper.active-btn:hover {
+  color:rgba(255, 255, 255, 0.88);
+  border: 1px solid #18ae91;
+  background: #18bc9c;
+} 
+
+.ant-radio-button-wrapper:hover {
+  background: #f2f5f4;
+  color:rgba(0, 0, 0, 0.88);
+}
+
+.ant-checkbox-wrapper {
+  margin-right: 10px;
+}
+
+ul.item-list  {
+  padding: 0;
+}
+
+ul.item-list li {
+  list-style-type: none;
+}
+
+.wrapper {
+  min-width: 1200px;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 0 0 5px;
+  color: #28313a;
+}
+.title-block {
+  text-align: center;
+}
+
+.title-block span.after-h1 {
+  color:#95a5a6;
+}
+
+.title-block h1 {
+  margin: 0px;
+}
+
+
+
+.ant-card {
+  box-shadow: 0 0 0 2px rgba(65, 91, 117, 0.1);
+}
+.ant-card .ant-card-head {
+  background: rgba(65, 91, 117, 0.1);
+}
+.input-edit {
+  width: 200px;
+}
+
+/* контент todo-list */
+.content-todolist {
+  margin-top: 50px;
+}
+
+.ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner,
+.ant-input:focus, .ant-input:focus-within {
+  border-color: #415b75;
+  box-shadow: 0 0 0 2px rgba(65, 91, 117, 0.1);
+}
+.ant-input:hover {
+  border-color: #415b75;
+}
+
+.ant-btn-primary {
+  background-color: #415b75;
+} 
+.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background: #2c3e50;
+} 
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #415b75;
+  border-color: #415b75;
+}
+
+.ant-checkbox-wrapper-checked:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, 
+.ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner,
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+  background: #2c3e50;
+  border-color: #415b75;
+}
+
 

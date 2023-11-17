@@ -1,0 +1,9 @@
+
+li.item-list {
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+.ant-checkbox-input {
+  margin: 15px;
+}
