@@ -3,10 +3,7 @@ import './App.css';
 import {PropsTask, TodoList} from './components/TodoList/TodoList';
 import uuid from 'react-uuid';
 import { AddItemForm } from './components/AddItemForm/AddItemForm';
-import { Card, Col, Row } from 'antd';
-import { start } from 'repl';
-
-
+import {  Col, Row } from 'antd';
 
 export type filterType = "all" | "active" | "done"
 type todoListPrpos = {
