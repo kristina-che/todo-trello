@@ -58,7 +58,8 @@ export function TodoList(props: PropsType) {
     <Card title={<h3>
                     <EditableSpan title={props.title} changeTitleTask={changeTitle} />
                     <DeleteItem tooltipTitle="" onClickDeleteHandler={deleteTodoListHandler} />
-                </h3>} 
+                </h3>}
+          className="content-card" 
     >
         <AddItemForm addItem={addTask} placeholder="New task" />
         <div>

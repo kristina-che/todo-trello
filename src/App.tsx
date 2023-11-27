@@ -6,13 +6,13 @@ import { AddItemForm } from './components/AddItemForm/AddItemForm';
 import {  Col, Row } from 'antd';
 
 export type filterType = "all" | "active" | "done"
-type todoListPrpos = {
+export type todoListPrpos = {
   idTodoList: string,
   titleTodoList: string,
   filter: filterType
 }
 
-type tasksStateType = {
+export type tasksStateType = {
   [key: string]: PropsTask[]
 }
 
@@ -44,7 +44,6 @@ function App() {
     const todoListFilter = todoLists.find(tl => tl.idTodoList === idTodoList)
     if(todoListFilter) {
       todoListFilter.filter = valueFilter;
-      //setFilter(valueFilter)
       setTodoLists([...todoLists])
     }
   }

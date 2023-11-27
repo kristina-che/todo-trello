@@ -43,7 +43,7 @@ ul.item-list li {
 }
 
 .wrapper {
-  min-width: 1200px;
+
   margin: 0 auto;
 }
 
@@ -78,7 +78,11 @@ h3 {
 
 /* контент todo-list */
 .content-todolist {
-  margin-top: 50px;
+  margin: 50px;
+}
+
+.content-card {
+  margin: 15px;
 }
 
 .ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner,
